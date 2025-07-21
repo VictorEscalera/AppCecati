@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+
+  <div class="calificaciones-header-bg">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+      <img src="assets/logo.png" alt="Icono Horarios" class="icono-calificaciones">
+      <span class="calificaciones-title">Horarios</span>
+      
+    </div>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
+
+  <section class="perfil-alumno">
+    <div class="foto-alumno">
+      <img src="assets/gymboy.jpeg" alt="Foto del Alumno">
+    </div>
+    <div class="info-alumno">
+      <h2 class="nombre-alumno">{{ alumno.nombre }}</h2>
+      <p><span class="label-alumno">Matrícula:</span> <span class="dato-alumno">{{ alumno.matricula }}</span></p>
+      <p><span class="label-alumno">Especialidad:</span> <span class="dato-alumno">{{ alumno.especialidad }}</span></p>
+    </div>
+  </section>
+
+  <ion-list>
+    <ion-item *ngFor="let horario of horarios">
+      <ion-label>
+        <h3 class="dia-horario">{{ horario.dia }}</h3>
+        <p>
+          <span class="materia-horario">{{ horario.materia }}</span>
+          <span class="hora-horario">- {{ horario.hora }}</span>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="boton-regresar-outer">
+    <ion-button (click)="irAlMenu()" class="boton-gradiente">
+      Ir al menú principal

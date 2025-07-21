@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <div class="calificaciones-header-bg">
+     
+    <img src="assets/logo.png" alt="Icono Horarios" class="icono-calificaciones" />
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <span class="calificaciones-title">Avisos</span>
+  </div>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <!-- Fondo animado de diagonales -->
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
+  <section class="perfil-alumno">
+    <div class="foto-alumno">
+      <img src="assets/gymboy.jpeg" alt="Foto del Alumno">
+    </div>
+    <div class="info-alumno">
+      <h2>Arturo Contreras</h2>
+      <p>
+        <span class="titulo-constancia">Matrícula: 
+        </span><span class="dato-valor">123456</span>
+      </p>
+      <p>
+        <span class="titulo-constancia">Especialidad:
+        </span><span class="dato-valor">Informática</span>
+      </p>
+    </div>
+  </section>
+
+  <ion-list>
+    <ion-item *ngFor="let aviso of avisos">
+      <ion-label>
+        <h3 class="titulo-constancia">{{ aviso.titulo }}</h3>
+        <p class="aviso-descripcion">{{ aviso.descripcion }}</p>
+        <small class="aviso-fecha">{{ aviso.fecha }}</small>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="boton-regresar-outer">
+    <ion-button (click)="irAlMenu()" class="boton-gradiente">
+      Ir al menú principal
+    </ion-button>
+  </div>
+</ion-content>

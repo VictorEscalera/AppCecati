@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <div class="calificaciones-header-bg">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <img src="assets/logo.png" alt="Icono Calificaciones" class="icono-calificaciones">
+    <span class="calificaciones-title">Asistencia</span>
+    <div class="logo-spacer"></div>
+  </div>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <!-- Fondo animado de diagonales -->
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
+
+  <section class="perfil-alumno">
+    <div class="foto-alumno">
+      <img src="assets/gymboy.jpeg" alt="Foto del Alumno">
+    </div>
+    <div class="info-alumno">
+      <h2>{{ alumno.nombre }}</h2>
+      <p>
+        <span class="dato-label">Matrícula:</span>
+        <span class="dato-valor">{{ alumno.matricula }}</span>
+      </p>
+      <p>
+        <span class="dato-label">Especialidad:</span>
+        <span class="dato-valor">{{ alumno.especialidad }}</span>
+      </p>
+    </div>
+  </section>
+
+  <ion-list>
+    <ion-item *ngFor="let asistencia of asistencias">
+      <ion-label>
+        <h3>{{ asistencia.fecha }}</h3>
+        <p>Estado: <span
+            [ngClass]="{'presente': asistencia.estado === 'Presente', 'ausente': asistencia.estado === 'Ausente'}">{{
+            asistencia.estado }}</span></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="boton-regresar-outer">
+    <ion-button (click)="irAlMenu()" class="boton-gradiente">
+      Ir al menú principal
+    </ion-button>
+  </div>
+</ion-content>

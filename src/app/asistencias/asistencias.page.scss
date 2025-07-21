@@ -1,0 +1,269 @@
+/* Fondo animado diagonal igual al resto de páginas */
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #f23545 50%, #b8002e 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: absolute; /* Para que funcione dentro de ion-content */
+  right: -50%;
+  top: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+.bg3 {
+  animation-duration: 5s;
+}
+@keyframes slide {
+  0% { transform: translateX(-25%);}
+  100% { transform: translateX(25%);}
+}
+
+/* Header */
+.calificaciones-header-bg {
+  background: linear-gradient(90deg, #f23545cc 0%, #ff7b7b99 100%);
+  box-shadow: 0 2px 12px #f2354555;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+.logo-spacer {
+  width: 158px;
+  height: 58px;
+  visibility: hidden;
+  color: #fff;
+}
+
+/* Contenedor izquierdo: menú + logo */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Botón menú (simple estilo) */
+#menu-button {
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* Logo */
+.icono-calificaciones {
+  position: absolute;
+  left: 56px;
+  width: 140px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px #f2354588);
+  animation: iconoPop 0.7s cubic-bezier(.4, 0, .2, 1);
+}
+/* Título centrado */
+.calificaciones-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow: 0 2px 12px #f2354555;
+  animation: titleFadeIn 0.9s cubic-bezier(.4, 0, .2, 1) 0.1s both;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Área derecha vacía para balancear el centrado */
+.header-right {
+  width: 166px;
+}
+
+/* Animaciones */
+@keyframes iconoPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes titleFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Diseño de perfil-alumno */
+.perfil-alumno {
+  background: linear-gradient(120deg, #fff5f5 60%, #f2354522 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #f2354555, 0 1.5px 8px #f2354522;
+  padding: 32px 32px 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 480px;
+  margin: 40px auto 24px auto;
+  animation: cardPop 0.8s cubic-bezier(.4,0,.2,1) 0.2s both;
+}
+@keyframes cardPop {
+  0% { transform: scale(0.95) translateY(30px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+.foto-alumno img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px #f2354555;
+  background: #fff5f5cc;
+  animation: fotoFadeIn 1s cubic-bezier(.4,0,.2,1) 0.4s both;
+}
+@keyframes fotoFadeIn {
+  0% { opacity: 0; transform: scale(0.8);}
+  100% { opacity: 1; transform: none;}
+}
+.info-alumno {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.info-alumno h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #f23545;
+  letter-spacing: 0.5px;
+}
+.info-alumno p {
+  margin: 0 0 6px 0;
+  font-size: 1.08em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Etiquetas grises y valores negros */
+.dato-label {
+  color: #b8002e;
+}
+.dato-valor {
+  color: #000000;
+}
+
+/* Lista de asistencias */
+ion-list {
+  margin: 32px auto 0 auto;
+  max-width: 520px;
+  background: transparent;
+}
+ion-item {
+  background: linear-gradient(90deg, #fff5f5 60%, #f2354522 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #f2354555;
+  margin-bottom: 18px;
+  padding: 12px 8px;
+  transition: box-shadow 0.2s;
+}
+ion-item:hover {
+  box-shadow: 0 4px 24px #f2354555;
+}
+.presente {
+  color: #2ecc40;
+  font-weight: 700;
+}
+.ausente {
+  color: #f23545;
+  font-weight: 700;
+}
+
+/* Botón regresar */
+.boton-regresar-outer {
+  display: flex;
+  justify-content: center;
+  margin: 24px auto 0 auto;
+}
+.boton-gradiente {
+  --background: linear-gradient(90deg, #f23545 60%, #ff7b7b 100%);
+  --color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  min-width: 180px;
+  max-width: 240px;
+  width: 100%;
+  font-size: 1em;
+}
+
+/* Responsive para móvil y tamaños pequeños */
+@media (max-width: 768px) {
+  .perfil-alumno {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 12px;
+    max-width: 90vw;
+    margin: 20px auto;
+  }
+  .foto-alumno img {
+    width: 80px;
+    height: 80px;
+  }
+  .info-alumno h2 {
+    font-size: 1.2em;
+  }
+  .info-alumno p {
+    font-size: 0.9em;
+  }
+  ion-list {
+    max-width: 90vw;
+    margin: 16px auto;
+  }
+  ion-item {
+    padding: 10px 6px;
+    margin-bottom: 12px;
+  }
+  .boton-regresar-outer {
+    margin: 250px auto 0 auto;
+  }
+  .boton-gradiente {
+    font-size: 0.9em;
+    min-width: 160px;
+    max-width: 200px;
+  }
+}
+
+/* Ajustes para pantallas aún más pequeñas */
+@media (max-width: 480px) {
+  .perfil-alumno {
+    padding: 16px 8px;
+    gap: 12px;
+  }
+  .foto-alumno img {
+    width: 70px;
+    height: 70px;
+  }
+  .info-alumno h2 {
+    font-size: 1em;
+  }
+  ion-list {
+    max-width: 95vw;
+  }
+  ion-item {
+    padding: 8px 4px;
+  }
+  .boton-gradiente {
+    font-size: 0.8em;
+    min-width: 140px;
+  }
+}
+ion-menu-button{
+  color: #ffffff !important;
+}

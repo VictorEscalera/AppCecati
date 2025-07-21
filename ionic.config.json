@@ -1,0 +1,7 @@
+{
+  "name": "Cecati186",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

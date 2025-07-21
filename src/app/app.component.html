@@ -1,0 +1,48 @@
+<ion-app>
+  <ion-menu side="start" menuId="main-menu" contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="light">
+        <div class="navbar-logo" style="display: flex; justify-content: center;">
+          <img src="assets/logorojo.jpeg" alt="Logo CECATI 186" class="logo" style="height: 38px;">
+        </div>
+        <div class="navbar-title" style="text-align: center; font-weight: 700; font-size: 1.1em;">
+          CECATI 186
+        </div>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/menu" routerDirection="root">Inicio</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/clases" routerDirection="root">Calificaciones</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/horarios" routerDirection="root">Horarios</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/asistencias" routerDirection="root">Asistencia</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/avisos" routerDirection="root">Avisos</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/constancias" routerDirection="root">Constancias</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item (click)="logout()">Cerrar Sesión</ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app>

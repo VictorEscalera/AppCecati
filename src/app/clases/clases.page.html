@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  
+  <div class="calificaciones-header-bg">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <img src="assets/logo.png" alt="Icono Calificaciones" class="icono-calificaciones">
+    <span class="calificaciones-title">Calificaciones</span>
+    <div class="logo-spacer"></div>
+  </div>
+</ion-header>
+
+
+
+
+<ion-content [fullscreen]="true" class="calificaciones-animate" id="main-content">
+  <!-- Fondo animado de diagonales -->
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
+  <section class="calificaciones-card">
+    <div class="foto-alumno">
+      <img src="assets/gymboy.jpeg" alt="Foto del Alumno">
+    </div>
+   <div class="info-alumno" >
+  <h2>{{ alumno.nombre }} {{ alumno.a_paterno }} {{ alumno.a_materno }}</h2>
+      <p class="especialidad">Especialidad:<span>{{ alumno.nom_cur }}</span></p>
+      <div class="calificacion-box">
+        <span class="label">Calificación final</span>
+        <span class="calificacion">9.7</span>
+      </div>
+    </div>
+  </section>
+  <div class="boton-regresar-outer">
+    <ion-button (click)="irAlMenu()" class="boton-gradiente">
+      Ir al menú principal
+    </ion-button>
+  </div>
+</ion-content>

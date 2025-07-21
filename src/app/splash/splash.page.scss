@@ -1,0 +1,51 @@
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #320505 0%, #f23545 100%);
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.splash-logo {
+  width: 140px; // Tamaño similar al login
+  height: auto;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  object-fit: contain;
+}
+
+.animated-text {
+  color: #ffffff; // Texto blanco
+  font-size: 2rem;
+  font-family: 'ABeeZee', sans-serif;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  text-align: center;
+  padding: 0 16px; // Separación inicial
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive para móviles
+@media (max-width: 600px) {
+  .animated-text {
+    padding: 0 24px; // Más separación en dispositivos móviles
+  }
+}

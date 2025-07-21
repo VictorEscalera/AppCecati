@@ -1,0 +1,368 @@
+// Fondo animado diagonal igual al resto de páginas
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #f23545 50%, #b8002e 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: absolute;
+  right: -50%;
+  top: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+.bg3 {
+  animation-duration: 5s;
+}
+@keyframes slide {
+  0% { transform: translateX(-25%);}
+  100% { transform: translateX(25%);}
+}
+
+// Fondo general animado y contrastante
+.calificaciones-animate {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #D51F26 0%, #D51F26 60%, #f23545 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInBg 1.2s cubic-bezier(.23,1.12,.72,.97) both;
+}
+
+@keyframes fadeInBg {
+  0% { opacity: 0; filter: blur(8px);}
+  100% { opacity: 1; filter: none;}
+}
+
+.calificaciones-header-bg {
+  background: linear-gradient(90deg, #f23545cc 0%, #ff7b7b99 100%);
+  box-shadow: 0 2px 12px #f2354555;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.icono-calificaciones {
+  width: 140px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px #f2354588);
+  animation: iconoPop 0.7s cubic-bezier(.4, 0, .2, 1);
+}
+
+.calificaciones-title {
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #fff;
+  text-align: center;
+  flex-grow: 1;
+  text-shadow: 0 2px 16px #f23545cc, 0 1px 0 #D51F26;
+  animation: titleFadeIn 1s cubic-bezier(.4, 0, .2, 1) 0.2s both;
+}
+
+.logo-spacer {
+  width: 140px;
+  height: 1px;
+  visibility: hidden;
+}
+
+@keyframes titleFadeIn {
+  0% { opacity: 0; transform: translateY(-20px);}
+  100% { opacity: 1; transform: none;}
+}
+
+@keyframes iconoPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+/* Responsive para móvil */
+@media (max-width: 600px) {
+  .icono-calificaciones {
+    width: 110px;
+    height: 42px;
+  }
+
+  .logo-spacer {
+    width: 160px;
+  }
+
+  .calificaciones-title {
+    font-size: 1.3em;
+  }
+}
+
+ion-menu-button, ion-menu-button::part(native) {
+  color: #fff !important;
+  --color: #fff !important;
+  --background: transparent !important;
+}
+
+.calificaciones-card {
+  background: linear-gradient(120deg, #fff5f5 60%, #f2354522 100%);
+  border-radius: 22px;
+  padding: 36px 24px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 380px;
+  margin: 48px auto 0 auto;
+  animation: cardPop 1s cubic-bezier(.4,0,.2,1) 0.3s both;
+  backdrop-filter: blur(6px);
+}
+
+@keyframes cardPop {
+  0% { transform: scale(0.92) translateY(40px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+// Foto con borde brillante y animación
+.foto-alumno {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  margin-bottom: 8px;
+}
+
+.foto-alumno img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px #f2354555;
+  border: none;
+  background: #fff;
+  animation: fotoFadeIn 1.2s cubic-bezier(.4,0,.2,1) 0.5s both;
+}
+@keyframes fotoFadeIn {
+  0% { opacity: 0; transform: scale(0.8);}
+  100% { opacity: 1; transform: none;}
+}
+
+// Info centrada y moderna
+.info-alumno {
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  animation: infoFadeIn 1s cubic-bezier(.4,0,.2,1) 0.7s both;
+}
+.info-alumno h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.45em;
+  font-weight: 800;
+  color: #f23545;
+  letter-spacing: 0.5px;
+}
+@keyframes infoFadeIn {
+  0% { opacity: 0; transform: translateY(20px);}
+  100% { opacity: 1; transform: none;}
+}
+.especialidad {
+  margin: 0 0 18px 0;
+  font-size: 1.08em;
+  color: #b8002e;
+  letter-spacing: 0.5px;
+}
+.especialidad span {
+  color: #000000;
+  padding: 2px 10px;
+  margin-left: -4px;
+}
+
+// Calificación con efecto neón y animación
+.calificacion-box {
+  background: linear-gradient(90deg, #fa7c7c 0%, #e93538 100%);
+  color: #fff;
+  border-radius: 14px;
+  padding: 18px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: califFadeIn 1.2s cubic-bezier(.4,0,.2,1) 1s both;
+}
+
+.calificacion-box .label {
+  font-size: 1.08em;
+  opacity: 0.95;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  text-shadow: 0 1px 4px #D51F26;
+}
+
+.calificacion-box .calificacion {
+  font-size: 2.5em;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-top: 2px;
+  text-shadow: 0 2px 12px #f23545, 0 1px 0 #D51F26;
+}
+
+@keyframes califFadeIn {
+  0% { opacity: 0; transform: scale(0.8);}
+  100% { opacity: 1; transform: none;}
+}
+
+// Botón con gradiente y animación
+.boton-regresar-outer {
+  display: flex;
+  justify-content: center;
+  margin: 24px auto 0 auto;
+}
+.boton-gradiente {
+  --background: linear-gradient(90deg, #f23545 60%, #ff7b7b 100%);
+  --color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  min-width: 180px;
+  max-width: 240px;
+  width: 100%;
+  font-size: 1em;
+}
+
+/* Responsive para móvil y tamaños pequeños */
+@media (max-width: 768px) {
+  .perfil-alumno {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 12px;
+    max-width: 90vw;
+    margin: 20px auto;
+  }
+  .foto-alumno img {
+    width: 80px;
+    height: 80px;
+  }
+  .info-alumno h2 {
+    font-size: 1.2em;
+  }
+  .info-alumno p {
+    font-size: 0.9em;
+  }
+  ion-list {
+    max-width: 90vw;
+    margin: 16px auto;
+  }
+  ion-item {
+    padding: 10px 6px;
+    margin-bottom: 12px;
+  }
+  .boton-regresar-outer {
+    margin: 16px auto 0 auto;
+  }
+  .boton-gradiente {
+    font-size: 0.9em;
+    min-width: 160px;
+    max-width: 200px;
+  }
+}
+@keyframes botonFadeIn {
+  0% { opacity: 0; transform: translateY(20px);}
+  100% { opacity: 1; transform: none;}
+}
+
+// === NEON SOLO EN CALIFICACIÓN FINAL ===
+.neon-alumno {
+  background: #181c24;
+  border-radius: 22px;
+  box-shadow: 0 2px 12px #93041055;
+  border: 2px solid #f23545cc;
+  padding: 28px 22px 22px 22px;
+  margin: 32px auto 24px auto;
+  max-width: 370px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: box-shadow 0.3s;
+
+  .foto-alumno img {
+    border-radius: 50%;
+    border: 3px solid #f23545;
+    box-shadow: 0 0 12px 2px #f23545cc;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    margin-right: 22px;
+  }
+  .info-alumno {
+    flex: 1;
+    h2 {
+      color: #fff;
+      font-size: 1.5em;
+      font-weight: 800;
+      margin: 0 0 8px 0;
+      letter-spacing: 1px;
+    }
+    .especialidad {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      span {
+        color: #fff;
+        margin-left: 6px;
+        font-weight: 700;
+      }
+    }
+    .calificacion-box {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 8px 16px;
+      display: inline-block;
+      box-shadow: 0 0 8px #f2354522;
+      .label {
+        color: #ff3b7b;
+        font-weight: 700;
+        font-size: 1em;
+        margin-right: 8px;
+        text-shadow: 0 0 8px #ff3b7b, 0 0 18px #ff3b7bcc, 0 0 2px #fff;
+        letter-spacing: 0.5px;
+      }
+      .calificacion {
+        color: #ff1744;
+        font-size: 1.3em;
+        font-weight: 900;
+        text-shadow: 0 0 10px #ff1744, 0 0 24px #ff1744cc, 0 0 2px #fff;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+// Responsive para móvil
+@media (max-width: 600px) {
+  .calificaciones-card {
+    padding: 18px 4vw 14px 4vw;
+    max-width: 98vw;
+    margin: 28px auto 0 auto;
+  }
+  .foto-alumno img {
+    width: 80px;
+    height: 80px;
+  }
+  .calificacion-box {
+    padding: 12px 10vw;
+  }
+  .boton-regresar-outer {
+    margin-top: 410px;
+  }
+}
+
+ion-menu-button, ion-menu-button::part(native) {
+  color: #fff !important;
+  --color: #fff !important;
+  --background: transparent !important;
+}

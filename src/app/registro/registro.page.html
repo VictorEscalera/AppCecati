@@ -1,0 +1,67 @@
+<ion-content class="ion-padding">
+  <div class="area">
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <div class="welcome-container">
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Logo" class="login-logo" />
+      </div>
+      <div class="welcome-text">
+        <h2>¡Bienvenido a CECATI 186!</h2>
+        <p>Crea tu cuenta para acceder al sistema escolar</p>
+      </div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">Crear una Cuenta</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <form (ngSubmit)="register()">
+            <ion-item>
+              <ion-input
+                type="text"
+                label="Usuario"
+                [(ngModel)]="name"
+                name="name"
+                placeholder="Ingrese su nombre"
+                required
+                labelPlacement="floating"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                label="Contraseña"
+                type="password"
+                [(ngModel)]="password"
+                name="password"
+                placeholder="Ingrese su contraseña"
+                required
+                labelPlacement="floating"
+              ></ion-input>
+            </ion-item>
+            <div class="button-group ion-text-center">
+              <ion-button class="custom-button" type="submit">REGISTRAR</ion-button>
+              <ion-button
+  class="custom-button"
+  expand="block"
+  (click)="goToLogin()"
+  type="button"
+>
+  VOLVER AL LOGIN
+</ion-button>
+            </div>
+          </form>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
