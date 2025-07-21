@@ -41,31 +41,32 @@ export class LoginPage {
     });
     await alert.present();
   }
+
   goToRegister() {
-  this.router.navigate(['/registro']);
-}
+    this.router.navigate(['/registro']);
+  }
 
-login() {
-  if (this.isSubmitting) return;
-  this.isSubmitting = true;
+  login() {
+    if (this.isSubmitting) return;
+    this.isSubmitting = true;
 
-  this.usuarioServicio.login(this.correo, this.curp).subscribe({
-    next: (res: any) => {
-      this.isSubmitting = false;
+    this.usuarioServicio.login(this.correo, this.curp).subscribe({
+      next: (res: any) => {
+        this.isSubmitting = false;
 
-      if (res.Respuesta) {
-        this.usuarioServicio.guardarAlumno(res.alumno); // Guardamos los datos del alumno
-        this.showAlert('Login exitoso', 'Alerta');
-        this.router.navigate(['menu']); // o ['asistencias'] si ese es el destino correcto
-      } else {
-        this.showAlert('Usuario o contraseña incorrectos.', 'Error');
+        if (res.Respuesta) {
+          this.usuarioServicio.guardarAlumno(res.alumno);
+          this.showAlert('Login exitoso', 'Alerta');
+          this.router.navigate(['menu']);
+        } else {
+          this.showAlert('Usuario o CURP incorrectos.', 'Error');
+        }
+      },
+      error: (error) => {
+        this.isSubmitting = false;
+        this.showAlert('Error al iniciar sesión.', 'Error');
+        console.error('Error de login:', error);
       }
-    },
-    error: (error) => {
-      this.isSubmitting = false;
-      this.showAlert('Error al iniciar sesión.', 'Error');
-      console.error('Error de login:', error);
-    }
-  });
-}
+    });
+  }
 }
