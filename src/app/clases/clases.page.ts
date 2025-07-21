@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { AlumnoService } from '../services/alumnos.service';
 import {
   IonContent,
   IonHeader,
@@ -30,17 +29,10 @@ export class ClasesPage implements OnInit {
 
    alumno: any;
 
-  constructor(private router: Router, private alumnoService: AlumnoService) {}
+  constructor(private router: Router) {}
 
 ngOnInit() {
-      this.alumnoService.getAlumnos().subscribe({
-    next: (data) => {
-      this.alumno = data[0]; // o filtrar como necesites
-    },
-    error: (err) => {
-      console.error('Error al obtener los alumnos:', err);
-    }
-  });
+    
 }
 
 

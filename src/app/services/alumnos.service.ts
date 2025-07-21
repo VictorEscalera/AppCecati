@@ -1,16 +1,24 @@
-// alumno.service.ts
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AlumnoService {
-private API_URL3= 'http://localhost:3000/api/alumnos';
+export class AlumnosService {
+  private URL = 'http://localhost:3000/api';
+  alumnoActual: any = null;
 
   constructor(private http: HttpClient) {}
 
-  getAlumnos() {
-    return this.http.get<any[]>(this.API_URL3);
+  login(correo: string, curp: string) {
+    return this.http.post<any>(`${this.URL}/login`, { correo, curp });
+  }
+
+  guardarAlumno(alumno: any) {
+    this.alumnoActual = alumno;
+  }
+
+  obtenerAlumnoGuardado() {
+    return this.alumnoActual;
   }
 }

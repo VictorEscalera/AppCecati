@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BDService } from '../bd/bd.service';
+import { AlumnosService } from '../services/alumnos.service';
 import { AlertController } from '@ionic/angular';
 import { 
   IonContent, 
@@ -27,7 +28,7 @@ export class LoginPage {
 
   constructor(
     private router: Router,
-    private usuarioServicio: BDService,
+    private usuarioServicio: AlumnosService,
     private alertController: AlertController
   ) {}
 
@@ -45,31 +46,27 @@ export class LoginPage {
   this.router.navigate(['/registro']);
 }
 
+login() {
+  if (this.isSubmitting) return;
+  this.isSubmitting = true;
 
-  login() {
-    if (this.isSubmitting) return;
-    this.isSubmitting = true;
+  this.usuarioServicio.login(this.name, this.password).subscribe({
+    next: (res: any) => {
+      this.isSubmitting = false;
 
-    const loginData = {
-      Usuario: this.name,
-      Contraseña: this.password
-    };
-
-    this.usuarioServicio.loginUser(loginData).subscribe({
-      next: (res: any) => {
-        this.isSubmitting = false; // Mover aquí para garantizar que se ejecute
-        if (res.Respuesta) {
-          this.showAlert('Login exitoso', 'Alerta');
-          this.router.navigate(['menu']);
-        } else {
-          this.showAlert('Usuario o contraseña incorrectos.', 'Error');
-        }
-      },
-      error: (error) => {
-        this.isSubmitting = false; // Asegurar que isSubmitting se restablezca en caso de error
-        this.showAlert('Error al iniciar sesión.', 'Error');
-        console.error('Error de login:', error);
+      if (res.Respuesta) {
+        this.usuarioServicio.guardarAlumno(res.alumno); // Guardamos los datos del alumno
+        this.showAlert('Login exitoso', 'Alerta');
+        this.router.navigate(['menu']); // o ['asistencias'] si ese es el destino correcto
+      } else {
+        this.showAlert('Usuario o contraseña incorrectos.', 'Error');
       }
-    });
-  }
+    },
+    error: (error) => {
+      this.isSubmitting = false;
+      this.showAlert('Error al iniciar sesión.', 'Error');
+      console.error('Error de login:', error);
+    }
+  });
+}
 }

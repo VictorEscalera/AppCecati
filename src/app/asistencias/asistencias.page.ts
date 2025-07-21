@@ -12,6 +12,7 @@ import {
   IonMenuButton   // <-- Importa IonMenuButton aquí
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
+import { AlumnosService } from '../services/alumnos.service';
 
 @Component({
   selector: 'app-asistencias',
@@ -33,12 +34,7 @@ import { Router } from '@angular/router';
 })
 export class AsistenciasPage implements OnInit {
 
-  alumno = {
-    nombre: 'Arturo Contreras',
-    matricula: '222324',
-    especialidad: 'Informática',
-    foto: 'assets/alumno.jpg'
-  };
+  alumno: any;
 
   asistencias = [
     { fecha: '2024-06-01', estado: 'Presente' },
@@ -46,9 +42,11 @@ export class AsistenciasPage implements OnInit {
     { fecha: '2024-06-03', estado: 'Presente' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private usuarioServicio: AlumnosService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.alumno = this.usuarioServicio.obtenerAlumnoGuardado();
+  }
 
   irAlMenu() {
     this.router.navigate(['/menu']);

@@ -1,36 +1,28 @@
-// server.js o index.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config(); // ⬅️ Cargar variables de entorno desde .env
+
 const app = express();
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
 // Conexión a MongoDB Atlas
-mongoose.connect('mongodb+srv://victorsolis2019:Tobivictor__11@cluster0.syaedri.mongodb.net/Cecati?retryWrites=true&w=majority&appName=Cluster0')
-  .then(() => console.log('✅ Conectado a MongoDB Atlas'))
-  .catch(err => console.error('❌ Error al conectar:', err));
-
-// Definición del modelo
-const AlumnoSchema = new mongoose.Schema({
-  nombre: String,
-  a_paterno: String,
-  a_materno: String
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('✅ Conectado a MongoDB Atlas'))
+.catch(err => {
+  console.error('❌ Error al conectar a MongoDB Atlas:', err);
+  process.exit(1); // Detiene la app si hay error de conexión
 });
 
-const Alumno = mongoose.model('Alumno', AlumnoSchema, 'Alumnos'); // con "A" mayúscula
+// Rutas
+app.use('/api', require('./routes/auth'));
 
-// Ruta para obtener los alumnos
-app.get('/api/alumnos', async (req, res) => {
-  try {
-    const alumnos = await Alumno.find();
-    res.json(alumnos);
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener alumnos' });
-  }
-});
-
-app.listen(3000, () => {
-  console.log('🚀 Servidor escuchando en http://localhost:3000');
-});
+// Iniciar servidor
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🚀 Servidor corriendo en puerto ${PORT}`));
