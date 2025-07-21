@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { BDService } from '../bd/bd.service';
 import { AlumnosService } from '../services/alumnos.service';
 import { AlertController } from '@ionic/angular';
 import { 
