@@ -21,8 +21,8 @@ import { CommonModule } from '@angular/common';
   imports: [IonCard, CommonModule, FormsModule, IonContent, IonItem, IonInput, IonButton, IonCardContent]
 })
 export class LoginPage {
-  password = '';
-  name = '';
+  correo = '';
+  curp = '';
   isSubmitting = false;
 
   constructor(
@@ -49,7 +49,7 @@ login() {
   if (this.isSubmitting) return;
   this.isSubmitting = true;
 
-  this.usuarioServicio.login(this.name, this.password).subscribe({
+  this.usuarioServicio.login(this.correo, this.curp).subscribe({
     next: (res: any) => {
       this.isSubmitting = false;
 

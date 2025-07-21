@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AlumnosService {
-  private URL = 'https://appcecati.onrender.com/api';
+  private URL = '{environment.apiUrl2}/api';
   alumnoActual: any = null;
 
   constructor(private http: HttpClient) {}
