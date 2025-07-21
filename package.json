@@ -29,6 +29,7 @@
     "@capacitor/status-bar": "7.0.1",
     "@ionic/angular": "^8.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "ionicons": "^7.0.0",
     "jspdf": "^3.0.1",
